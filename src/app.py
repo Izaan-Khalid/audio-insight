@@ -42,7 +42,7 @@ col1, col2 = st.columns(2)
 
 # Initialize Pinecone client outside the file upload logic
 pc = Pinecone(os.getenv("PINECONE_API_KEY"))
-index = pc.Index("podcast-transcripts")
+index = pc.Index("audio-insight")
 
 # At the beginning of your script, add this to your other session state initializations
 if "user_question_key" not in st.session_state:

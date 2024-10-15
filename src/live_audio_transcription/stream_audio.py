@@ -24,7 +24,7 @@ transcription_chunks = list()
 
 load_dotenv()
 pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
-index = pc.Index("podcast-transcripts")
+index = pc.Index("audio-insight")
 stats = index.describe_index_stats()
 
 # Check vector count
