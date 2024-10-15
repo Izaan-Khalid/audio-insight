@@ -162,8 +162,8 @@ with col1:
         st.session_state.recording = False  # False means recording has not started
 
 # Detect if the user presses either Start or Stop button
-    start_button = st.button("Start Recording - Coming soon", disabled=True)
-    stop_button = st.button("Stop Recording - Coming soon", disabled=True)
+    start_button = st.button("Start Recording - Coming soon")
+    stop_button = st.button("Stop Recording - Coming soon")
 
 # Handle button presses
     if start_button and not st.session_state.recording:
