@@ -19,6 +19,8 @@ CHANNELS = 1
 RATE = 16000
 DURATION = 5
 
+p = pyaudio.PyAudio()
+
 # List to store the chunkz of text
 transcription_chunks = list()
 
@@ -69,7 +71,6 @@ def split_text_into_chunks(text, word_limit=100):
 
 def start_recording():
     global recording 
-    p = pyaudio.PyAudio()
     stream = p.open(format=FORMAT,
                     channels=CHANNELS,
                     rate=RATE,
@@ -99,7 +100,6 @@ def start_recording():
             st.session_state.text = ""
         st.write(transcription)
         time.sleep(0.01)
-    
     stream.stop_stream()
     stream.close()
     p.terminate()
@@ -111,6 +111,7 @@ def start_transcription():
 
 def stop_transcription():
     """Function to stop recording."""
+    p.terminate()
     st.session_state.recording = False
     st.write("Recording stopped.")
     if st.session_state.text != "":
